@@ -11,8 +11,7 @@ def get_coordinate(registro):
     Returns:
         Un string con la coordenada del mapa
     """
-    pass  # Reemplazar con tu implementación
-
+    return registro [1]
 
 def convert_coordinate(coordenada):
     """
@@ -24,8 +23,7 @@ def convert_coordinate(coordenada):
     Returns:
         Una tupla con los componentes individuales (ej: ("2", "A"))
     """
-    pass  # Reemplazar con tu implementación
-
+    return (coordenada[0], coordenada[1])
 
 def create_record(registro_azara, registro_rui):
     """
@@ -47,8 +45,25 @@ def create_record(registro_azara, registro_rui):
     Returns:
         Tupla combinada si las coordenadas coinciden, o "not a match" si no.
     """
-    pass  # Reemplazar con tu implementación
+    # registro_azara es ('Brass Spyglass', '4B')
+    # registro_rui es ('Abandoned Lighthouse', ('4', 'B'), 'Blue')
 
+    # 1. Obtenemos la coordenada de Azara (índice 1)
+    coord_azara = registro_azara[1] 
+    
+    # 2. La convertimos a tupla: "4B" -> ("4", "B")
+    coord_azara_tupla = convert_coordinate(coord_azara)
+    
+    # 3. Obtenemos la coordenada de Rui (índice 1)
+    coord_rui = registro_rui[1]
+    
+    # 4. Comparamos
+    if coord_azara_tupla == coord_rui:
+        # Si coinciden, sumamos las tuplas para crear una nueva
+        return registro_azara + registro_rui
+    else:
+        # Si no coinciden, devolvemos el mensaje de error
+        return "not a match"
 
 def sum_tuple(numeros):
     """
@@ -68,8 +83,10 @@ def sum_tuple(numeros):
         sum_tuple((1, 2, 3, 4, 5)) -> 15
         sum_tuple(()) -> 0
     """
-    pass  # Reemplazar con tu implementación
-
+    total = 0
+    for n in numeros:
+        total = total + n
+    return total
 
 def count_occurrences(tupla, elemento):
     """
@@ -89,8 +106,12 @@ def count_occurrences(tupla, elemento):
         count_occurrences((1, 2, 2, 3, 2), 2) -> 3
         count_occurrences(('a', 'b', 'a'), 'c') -> 0
     """
-    pass  # Reemplazar con tu implementación
-
+    contador = 0
+    for n in elemento:
+       if n == elemento:
+           contador = contador + 1
+    return contador 
+        
 
 def find_index(tupla, elemento):
     """
@@ -111,8 +132,10 @@ def find_index(tupla, elemento):
         find_index(('a', 'b', 'c', 'b'), 'b') -> 1
         find_index((1, 2, 3), 9) -> -1
     """
-    pass  # Reemplazar con tu implementación
-
+    for i in range(len(tupla)):
+        if tupla[i] == elemento:
+            return i  # ¡Lo encontré! Salgo de la función.
+    return -1  # Si llegué acá, es porque no estaba.
 
 def filter_positives(numeros):
     """
@@ -129,4 +152,8 @@ def filter_positives(numeros):
         filter_positives((-3, 1, 0, 5, -2, 7)) -> (1, 5, 7)
         filter_positives((-1, -2, -3)) -> ()
     """
-    pass  # Reemplazar con tu implementación
+    resultado = ()  # Tupla nueva vacía
+    for n in numeros:
+        if n > 0:
+            resultado = resultado + (n, )  # Concatenamos la tupla
+    return resultado
