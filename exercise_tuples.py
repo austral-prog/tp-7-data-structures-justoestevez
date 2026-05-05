@@ -107,7 +107,7 @@ def count_occurrences(tupla, elemento):
         count_occurrences(('a', 'b', 'a'), 'c') -> 0
     """
     contador = 0
-    for n in elemento:
+    for n in tupla:
        if n == elemento:
            contador = contador + 1
     return contador 
