@@ -113,8 +113,9 @@ def find_max_value(diccionario):
     if not diccionario:
         return ""
     
-    ganador = ""
-    max_puntaje = -1 
+    nombres = list(diccionario.keys())
+    ganador = nombres[0]
+    max_puntaje = diccionario[ganador]
     
     for nombre, puntaje in diccionario.items():
         if puntaje > max_puntaje:
