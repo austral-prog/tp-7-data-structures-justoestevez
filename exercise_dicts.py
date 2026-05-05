@@ -15,10 +15,10 @@ def create_inventory(items):
     """
     inventario = {}
     for item in items:
-        if item in items:
-            inventario{item} = inventario{item} + 1
+        if item in inventario:
+            inventario[item] = inventario[item] + 1
         else:
-            inventario{item} = 1
+            inventario[item] = 1
     return inventario
             
 
