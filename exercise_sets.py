@@ -37,7 +37,7 @@ def check_drinks(nombre_bebida, ingredientes):
         String con el nombre de la bebida seguido de "Cocktail" o "Mocktail"
     """
     for ing in ingredientes:
-        for ing in ALCOHOLS:
+        if ing in ALCOHOLS:
             return f"{nombre_bebida} Cocktail"
             
     # Si terminó y ninguno estaba en ALCOHOLS...
